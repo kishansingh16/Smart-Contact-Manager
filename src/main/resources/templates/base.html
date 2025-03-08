@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:fragment="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base Template</title>
+    <title data-th-replace="${title}">SCM</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900">
+    <!-- Common Header -->
+    <div data-th-replace="navbar::navbar"></div>
 
-    <!-- Parent fragment -->
-    <div th:fragment="parent(content)">
-        <div th:replace="${content}"></div>
+    <!-- Main Content -->
+    <div class="container mx-auto p-8 bg-white shadow-lg rounded-xl mt-8 border border-gray-200">
+        <section data-th-replace="${content}"></section>
     </div>
 
-    <!-- Test fragment for non-logged-in users -->
-    <div th:fragment="test(content)">
-        <div th:replace="${content}"></div>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white text-center p-5 mt-10 shadow-md rounded-t-lg">
+        <p class="text-sm font-light">Footer: This is a Mentorship Website</p>
+    </footer>
+
+    <!-- Flowbite Script -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <th:block data-th-replace="${script}"></th:block>
 </body>
 </html>
