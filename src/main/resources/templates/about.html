@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+</head>
+<body>
+    <h1>This is about page</h1>
+
+    <!-- Corrected Thymeleaf fragment replacement -->
+    <div class="host-tag" th:replace="${isLogin} ? ~{base::parent(~{::section})} : ~{base :: test(~{::#not_logged_in})}">
+        <section>
+            <h1>User is Logged In</h1>
+            <h2>Dynamic Content</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem porro magni tempora velit harum nobis esse modi dolorem! 
+                At commodi explicabo aliquam debitis. 
+                Esse minus provident, ducimus libero quae fuga.
+            </p>
+            <button>Click on Dynamic Content</button>
+        </section>
+        <section id="not_logged_in">
+            <h1>User is not logged In</h1>
+        </section>
+    </div>
+</body>
+</html>

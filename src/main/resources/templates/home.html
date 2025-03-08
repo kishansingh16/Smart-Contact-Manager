@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+</head>
+<body class="bg-gray-100 flex justify-center pt-8">
+    <div class="w-1/2 p-8 bg-white rounded-lg shadow-lg text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4" th:text="${name}">Welcome to Home Page</h1>
+        <p class="text-lg text-gray-600 text-center">Youtube: 
+            <a class="text-blue-600 font-semibold hover:underline" th:href="${youtube}" th:text="${youtube}"></a>
+        </p>
+        <p class="text-lg text-gray-600 mt-2 text-center">Repository: 
+            <a class="text-blue-600 font-semibold hover:underline" th:href="${githubRepo}" th:text="${githubRepo}"></a>
+        </p>
+        <p class="text-lg text-gray-600 mt-4 text-center">
+            This is a sample paragraph containing 100 words. The purpose of this text is to fill space and demonstrate how content appears in the layout. You can replace this with any meaningful text relevant to your website. The paragraph should be well-structured and easy to read. Proper alignment and spacing improve readability. Using Tailwind CSS helps in maintaining consistency in design. Make sure the content is engaging, informative, and visually appealing. Responsive designs ensure compatibility across different devices. Finally, test your webpage on various screen sizes to verify how it looks and performs.
+        </p>
+        <button class="mt-6 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+            Click Me
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>
