@@ -1,5 +1,8 @@
 /* ./src/main/resources/static/css */
 
+@import 'flowbite';
+
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
