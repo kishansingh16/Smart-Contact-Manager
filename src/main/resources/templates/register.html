@@ -3,18 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <div id="content">
-        <h1>Welcome to Register page</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Perferendis quisquam laboriosam asperiores quibusdam tenetur accusantium, ipsam optio eum ab, inventore at, 
-            minus ea voluptas totam exercitationem beatae? Vero, atque mollitia!</p>
+    <div id="content" class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-md w-full bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">
+                Create an Account
+            </h2>
+
+            <form
+                th:action="@{/do-register}"
+                method="POST"
+                data-th-object="${userForm}"
+                class="grid gap-6">
+                
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium">Full Name</label>
+                    <input 
+                        type="text"
+                        id="name"
+                        th:field="*{name}"
+                        name="fullName"
+                        required
+                        class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="Enter your name">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium">Email</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        required 
+                        class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="Enter your email">
+                </div>
+
+                <!-- Contact Number -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium">Contact Number</label>
+                    <input type="tel" name="contactNumber" required 
+                        class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="Enter your contact number">
+                </div>
+
+                <!-- New Password -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium">New Password</label>
+                    <input type="password" name="password" required 
+                        class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="Enter new password">
+                </div>
+
+                <!-- About Yourself -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium">About Yourself</label>
+                    <textarea name="aboutYourself" rows="4" required
+                        class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="Write something about yourself..."></textarea>
+                </div>
+
+                <!-- Sign Up & Reset Buttons (Aligned in One Line) -->
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="w-1/2 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+                        Sign Up
+                    </button>
+                    <button type="reset" class="w-1/2 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <!-- Login Redirect -->
+            <p class="text-center text-gray-600 dark:text-gray-400 mt-4">
+                Already have an account? 
+                <a th:href="@{/login}" class="text-blue-500 hover:underline">Login</a>
+            </p>
+        </div>
     </div>
+
     <script>
-        console.log("Home page")
+        console.log("Sign-up Page Loaded");
     </script>
-    
 </body>
 </html>

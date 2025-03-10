@@ -3,7 +3,13 @@ package com.scm.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.scm.forms.UserForm;
+
 
 @Controller
 public class PageController {
@@ -39,10 +45,24 @@ public class PageController {
     }
     
     @GetMapping("/register")
-    public String register() {
-        return new String("register");
+    public String register(Model model) {
+        UserForm userForm=new UserForm();
+        // userForm.setName("kishan");
+        //
+        model.addAttribute("userForm", userForm);
+
+        return "register"; // Ensure "register.html" exists in your templates folder
     }
     
+
+
+    //processing register
+
+    @PostMapping(value = "/do-register")
+    public String processRegister() {
+        System.out.println("processing registration");
+        return "redirect:/register";
+    }
     
     
 }
